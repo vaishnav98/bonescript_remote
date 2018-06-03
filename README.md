@@ -3,6 +3,16 @@
 
 Usage : Client side 
 
+if no setup done on server side
+```
+git clone https://github.com/vaishnav98/bonescript_remote.git
+sudo npm install -g ./bonescript_remote
+(for running app.js script on board)
+remotebone_client upload /path/to/app.js -u
+(or)
+remotebone_client upload /path/to/app.js -unsecure
+```
+if secure upload enabled on server side
 ```
 git clone https://github.com/vaishnav98/bonescript_remote.git
 sudo npm install -g ./bonescript_remote
@@ -14,6 +24,7 @@ remotebone_client config
 remotebone_client upload /path/to/app.js
 ```
 Usage : server side[on beaglebone] (server side setup not compulsory , only for security)
+
 ```
 update to this version of BoneScript
 https://github.com/vaishnav98/bonescript/tree/remote-upload
