@@ -1,0 +1,21 @@
+{
+  "name": "bonescript_remote",
+  "version": "1.0.0",
+  "description": "CLI for bonescript remote script upload",
+  "main": "index.js",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "remotebone_server": "./bin/server.js",
+    "remotebone_client": "./bin/client.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "shelljs": "^0.8.2",
+    "socket.io-client": "^2.1.1",
+    "winston": "^2.4.2"
+  }
+}
