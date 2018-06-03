@@ -29,6 +29,7 @@ try {
 var args = process.argv;
 var options = process.argv[2];
 var filepath = process.argv[3];
+var flags = process.argv[4];
 
 
 var configureOptions = function () {
@@ -106,15 +107,20 @@ case 'config':
 case 'upload':
     if (fs.existsSync(filepath) && configExists)
         main.runRemoteModule(username, password, filepath, targetDetails)
-
     else {
         if (!fs.existsSync(filepath)) {
             console.log('file does not exist : for upload the usage is remotebone_client upload app.js')
             process.exit(-1);
         }
-        if (!configExists) {
-            console.log('configuration file does not exist!')
-            configureOptions();
+       if (!configExists) {
+           if(flags == '-u' || flags == '-unsecure'){
+                if (fs.existsSync(filepath))
+                     main.runRemoteModule(null,null, filepath, {"isHTTPS":false,"address":"192.168.7.2","port":"80"});
+             }
+            else {
+                console.log('configuration file does not exist!');
+                configureOptions();
+            }
         }
     }
     break;
